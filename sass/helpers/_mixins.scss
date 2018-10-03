@@ -9,6 +9,21 @@
     -webkit-align-items: $align-items;
     align-items: $align-items;
     -webkit-justify-content: $justify-content;
-    justify-content: $justify-content;
-    
+    justify-content: $justify-content;    
+}
+
+@mixin responsivo($tipo) {
+    @if $tipo == tab-port {
+        @media screen and (min-width: 768px){
+            @content;
+        }
+    } @else if $tipo == tab-land {
+        @media screen and (min-width: 1024px) {
+            @content;
+        }
+    } @else if $tipo == desktop {
+        @media screen and (min-width: 1440px) {
+            @content;
+        }
+    }
 }

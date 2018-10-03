@@ -8,15 +8,14 @@
     color: white;
     min-height: 80vh;
     height: 500px;
-
+    @include responsivo(tab-port) {
+        padding: 0 20rem;
+    }
     &__titulo {
         text-align: center;
         font-size: 2.6rem;
         text-transform: uppercase;
-    }
-    @media (min-width: 768px) {
-        padding: 0 20rem;
-        &__titulo {
+        @include responsivo(tab-port) {
             font-size: 3.5rem;
             text-align: center;
         }
@@ -41,15 +40,25 @@
         color: #63458a;
         font-size: 1.6rem;
         line-height: 1.5;
+        @include responsivo(tab-land) {
+            font-size: 1.7rem;
+        }
     }
     &__introducao {
         @include flexbox(column, center);
-
+        @include responsivo(tab-land) {    
+            flex-direction: row;
+            margin: 3rem 0;
+        }
     }
     &__foto-perfil {
         max-width: 18rem;
         margin: 1rem;
         background-color: #63458a;
+        @include responsivo(tab-land) {    
+            max-width: 100%;
+            margin: 0 4rem;
+        }
     }
     &__citacao p {
         font-weight: bold;
@@ -57,30 +66,16 @@
         text-align: center;
         padding: 1rem;
         font-size: 1.7rem;
+        @include responsivo(tab-land) {
+            font-size: 2.5rem;
+            padding: 4rem;
+        }
     }
     &__historia {
         @include flexbox(column, center);
         flex-direction: column;
         align-items: center;
         padding: 5rem 0;
-    }
-
-    @media (min-width: 1024px) {    
-        &__introducao {
-            flex-direction: row;
-            margin: 3rem 0;
-        }
-        &__foto-perfil {
-            max-width: 100%;
-            margin: 0 4rem;
-        }
-        & p {
-            font-size: 1.7rem;
-        }
-        &__citacao p {
-            font-size: 2.5rem;
-            padding: 4rem;
-        }
     }
 }
 
@@ -92,15 +87,12 @@
         text-align: center;
         @include flexbox(column, center, space-around);
         padding: 2rem 0;
-        @media (min-width: 1024px) {
-          
-                @include flexbox($flex-direction:row, $justify-content: center, $align-items: center);
-                text-align: left;
-                padding: 0;
-          
+        @include responsivo(tab-land) {
+            @include flexbox($flex-direction:row, $justify-content: center, $align-items: center);
+            text-align: left;
+            padding: 0;
         }
     }
-
     &__foto {
         max-width: 150px;
     }
@@ -112,20 +104,14 @@
         & p {
             margin: 0;
         }
+        @include responsivo(tab-land) {
+            margin: 0 3rem;
+        }
     }
-
     a {
         font-style: italic;
         text-decoration: underline;
     }
-    
-    @media (min-width: 1024px) {
-  
-        &__dados {
-            margin: 0 3rem;
-        }
-    }
-    
 }
 .secao-cta {
     text-align: center;

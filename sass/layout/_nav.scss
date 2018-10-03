@@ -13,6 +13,10 @@
     }
     &__box {
        @include flexbox( $align-items: center, $justify-content: space-between);
+       
+       @include responsivo(desktop){
+            max-width: 80%;
+       }
     }
     &__itens {
         position: absolute;
@@ -39,25 +43,8 @@
                 color: $cor-secundaria;
             }
         }
-    }
-    &__menu-hamburguer img {
-        background-color: $cor-secundaria;
-        border-radius: 5px;
-    }
-    &__nav {
-        margin-bottom: 3rem;
-        margin-right: 2rem;
-        li {
-            font-size: 1.5rem;
-            margin: 1rem;
-        }
-    }
-    &__redes-sociais a {
-        margin: 0 1rem;
-    }
 
-    @media (min-width: 768px){
-        &__itens {
+        @include responsivo(tab-port){
             position: static;
             @include flexbox;
             padding: 0;
@@ -72,23 +59,34 @@
                 margin: 0 .6rem;
             }
         }
-        &__nav {
+        @include responsivo(desktop) {
+            & li {
+                font-size: 1.5rem;
+                margin: 0 1rem;
+            }
+        }
+    }
+    &__menu-hamburguer img {
+        background-color: $cor-secundaria;
+        border-radius: 5px;
+    }
+    &__nav {
+        margin-bottom: 3rem;
+        margin-right: 2rem;
+        li {
+            font-size: 1.5rem;
+            margin: 1rem;
+        }
+        @include responsivo(tab-port){
             margin-bottom: 0;
         }
-
+    }
+    &__redes-sociais a {
+        margin: 0 1rem;
+    }
+    @include responsivo(tab-port){
         &__menu-hamburguer {
             display: none;
-        }
-
-    }
-
-    @media (min-width: 1440px) {
-        &__box {
-            max-width: 80%;
-        }
-        &__itens li {
-            font-size: 1.5rem;
-            margin: 0 1rem;
         }
     }
 }
